@@ -1,0 +1,12 @@
+<div class="widget subscribe-widget">
+    <form class="subscribe-form" style="background-color:#eeeeee;color:black" method='POST'>
+        {% csrf_token %}
+        <h1 style="color: black;">Subscribe to RSS Feeds</h1>
+        {{form}}
+        <br> <br>
+            <input type="submit" value="submit" class='btn btn-success btn-sm btn-block'>
+            
+        
+        <p style="color: black;">Get all latest content delivered to your email a few times a month.</p>
+    </form>
+</div>

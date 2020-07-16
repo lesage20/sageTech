@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>infographics/add</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Phase-4---Save-to-new-Board" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-798.000000, -531.000000)">
+        <g id="modal" transform="translate(610.000000, 422.000000)">
+            <g id="modal-window" transform="translate(0.000000, 24.000000)">
+                <g id="filter" transform="translate(176.000000, 73.000000)">
+                    <g id="infographics/add" transform="translate(12.000000, 12.000000)">
+                        <rect id="background" fill="#FFFFFF" x="0" y="0" width="20" height="20"></rect>
+                        <polygon id="add" fill="#666E6E" points="9.40080261 1 9.40080261 9.40207236 1 9.40207236 1 10.6045107 9.40080261 10.6045107 9.40080261 19.002 10.6017303 19.002 10.6017303 10.6045107 19.0004 10.6045107 19.0004 9.40207236 10.6017303 9.40207236 10.6017303 1"></polygon>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

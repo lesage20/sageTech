@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>infographics/search</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Phase-4---Open-Modal" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-799.000000, -491.000000)">
+        <g id="modal" transform="translate(610.000000, 381.000000)" fill="#666E6E">
+            <g id="modal-window" transform="translate(0.000000, 24.000000)">
+                <g id="filter" transform="translate(176.000000, 73.000000)">
+                    <g id="infographics/search" transform="translate(12.000000, 12.000000)">
+                        <g transform="translate(1.000000, 1.000000)" id="Shape">
+                            <path d="M17.9138756,17.2224 L13.7799043,13.0752 C14.9856459,11.6928 15.7320574,9.8496 15.7320574,7.8912 C15.7320574,3.6864 12.0574163,0 7.86602871,0 C3.50239234,0 0,3.5136 0,7.8912 C0,12.2688 3.50239234,15.7824 7.86602871,15.7824 C9.87559809,15.7824 11.6555024,15.0336 13.0909091,13.7664 L17.2248804,17.9136 C17.3397129,18.0288 17.5119617,18.0288 17.6267943,17.9136 L17.9138756,17.6256 C18.0287081,17.5104 18.0287081,17.3376 17.9138756,17.2224 L17.9138756,17.2224 Z M7.875,14.625 C4.1625,14.625 1.125,11.5747908 1.125,7.90324268 C1.125,4.17520921 4.1625,1.125 7.875,1.125 C11.475,1.125 14.625,4.28817992 14.625,7.90324268 C14.56875,11.6312762 11.5875,14.625 7.875,14.625 L7.875,14.625 Z"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
