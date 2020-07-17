@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from .forms import *
 from django.forms import inlineformset_factory
-from .models import *
+
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import Group
@@ -38,17 +38,24 @@ def registerUser(request):
     
     if request.method == 'POST':
         form = CreateUser(request.POST)
-        if form.is_valid:
-            user = form.save()
+        try:
+            if form.is_valid:
+                user = form.save()
+                
+                
+                username = form.cleaned_data.get('username')
+                group = Group.objects.get(name='users')
+                print(group.name)
+                user.groups.add(group)
+                Profile.objects.create(user=user, username=username, email=form.cleaned_data.get('email'))
+                messages.success(request, f'+ Account {username} successfully  created')
+                return redirect('index')
+            else:
+                messages.warning(request, 'Please validate the form befor being registered')
+        except ValueError:
             
-            
-            username = form.cleaned_data.get('username')
-            group = Group.objects.get(name='visiteur')
-            user.group.add(group)
-            Profile.objects.create(user=user, username=username, email=form.cleaned_data.get('email'))
-            messages.success(request, f'+ Account {username} successfully  created')
-            return redirect('index')
-    
+            messages.warning(request, 'You just entered wrong value')
+        
     
     datas={
         'form':form
@@ -66,3 +73,21 @@ def forgot(request):
 def logoutUser(request):
     logout(request)
     return redirect('login')
+
+@login_required(login_url='login')
+def Usettings(request):
+    user = request.user
+    form = ProfileForm(instance=user)
+    print(help(request.parse_file_upload))
+    if request.method == 'POST':
+        
+        form = ProfileForm(request.POST, request.FILES, instance=user)
+        if form.is_valid():
+            form.save()
+            return redirect(request.path_info)
+    
+    
+    datas = {
+        'form': form,
+    }
+    return render(request, 'user-settings.html', datas)

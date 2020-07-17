@@ -5,6 +5,6 @@ from .models import *
 admin.site.register(Tag)
 admin.site.register(Category)
 admin.site.register(Article)
-admin.site.register(Video)
 admin.site.register(Comment)
 admin.site.register(Auteur)
+admin.site.register(Like)

@@ -67,12 +67,15 @@ class Article(models.Model):
     image3 = models.ImageField(upload_to='images/single_example2', null=True)
     
     auteur = models.ForeignKey(Auteur, on_delete=models.CASCADE, related_name='auteur_article', null=True)
-    tag = models.ManyToManyField(Tag, related_name='tag_aticle')
+    tag = models.ManyToManyField(Tag, related_name='tag_article')
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='category_article', null=True)
     description = models.TextField(null=True)
     nb_comment = models.PositiveIntegerField(null=True)
     nb_vue = models.PositiveIntegerField(null=True)
     date = models.DateField(null=True)
+    
+    liked = models.ManyToManyField(User, related_name='liked', blank=True)
+
 
     date_add = models.DateTimeField(auto_now_add=True)
     date_update = models.DateTimeField(auto_now=True)
@@ -93,29 +96,16 @@ class Article(models.Model):
     def get_comments(self):
         return self.comments.all().order_by('-timestamp')
     
-
-class Video(models.Model):
-    titre = models.CharField(max_length=200, null=True)
-    lien = models.URLField(null=True)
-    auteur = models.ForeignKey(User, on_delete=models.CASCADE, related_name='auteur_video', null=True)
-    description = models.TextField(null=True)
-    nb_comment = models.PositiveIntegerField(null=True)
-    date = models.DateField(null=True)
-
-    date_add = models.DateTimeField(auto_now_add=True)
-    date_update = models.DateTimeField(auto_now=True)
-    status = models.BooleanField(default=True)
+    @property
+    def likes_count(self):
+        return self.liked.all().count()
     
-    class Meta:
-        verbose_name = 'Video'
-        verbose_name_plural = 'Videos'
 
-    def __str__(self):
-        return self.titre
+
 
 
 class Comment(models.Model):
-    profile = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='user_comment', null=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_comment', null=True)
     message = models.TextField(null=True)
     timestamp = models.DateTimeField(auto_now_add=True, null=True)
     article = models.ForeignKey(Article, on_delete=models.CASCADE, related_name='comments', null=True)
@@ -133,3 +123,19 @@ class Comment(models.Model):
     def __str__(self):
         return self.user.username
     
+LIKE_CHOICES = (
+    ('Like', 'Like'),
+    ('Unlike', 'Unlike')
+)
+    
+class Like(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    article = models.ForeignKey(Article, on_delete=models.CASCADE)   
+    value = models.CharField(choices=LIKE_CHOICES, max_length=10, default=True) 
+    
+    class Meta:
+        verbose_name = 'Like'
+        verbose_name_plural = 'Likes'
+    
+    def __str__(self):
+        return str(self.article)

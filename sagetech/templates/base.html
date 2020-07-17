@@ -3,6 +3,7 @@
 <!doctype html>
 <html lang="en" class="no-js">
 <head>
+	
 	<title>Sage Blog</title>
 
 	<meta charset="utf-8">
@@ -126,11 +127,19 @@
 									{% if user.is_authenticated %}
 					
 								<div class="navbar-right" style='padding-top: 10px;'>
-									<span class="btn btn-primary btn-xl" style="margin-right:20px ;">Connected as, {{request.user.username}} </span>
-								
-								<span class="btn btn-danger"  >
-									<a style="color: #fff;" href="{% url 'logout' %}">Logout</a>
-								</span>
+									<ul>
+										<li class="btn btn-primary " style="margin-right:20px ;">
+											Connected as, {{request.user.username}} 
+										</li>
+									
+										<li class="btn btn-danger"  >
+											<a style="color: #fff;" href="{% url 'logout' %}">Logout</a>
+										</li>
+
+										<li class="btn btn-success">
+											<a style="color: #fff;" href="{% url 'user-settings' %}">settings</a>
+										</li>
+									</ul>
 								</div>
 						
 					
