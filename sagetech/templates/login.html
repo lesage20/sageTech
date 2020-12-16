@@ -68,11 +68,15 @@
                             </form>
                             <p>Don't have an account?<a href="{% url 'register'%}"> Register here</a></p>
 
-                            <p>
+                            
                                 {% for message in messages %}
-                                {{message}}
+                                    {% if message.tags == 'error' %}
+                                        <p class="alert alert-danger"> {{message}} </p>
+                                    {% else %}
+                                        <p class="alert alert-{{message.tags}}"> {{message}} </p>
+                                    {% endif %}
                                 {% endfor %}
-                            </p>
+                            
                         </div>
                     </div>
                 </div>
