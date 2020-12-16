@@ -61,9 +61,13 @@
                                     {{form.password2}} 
                                 </div>
 
-                                {%for message in messages%}
-                                    {{message}}
-                                {% endfor%}
+                                {% for message in messages %}
+                                    {% if message.tags == 'error' %}
+                                        <p class="alert alert-danger"> {{message}} </p>
+                                    {% else %}
+                                        <p class="alert alert-{{message.tags}}"> {{message}} </p>
+                                    {% endif %}
+                                {% endfor %}
                                 
                                 <div class="form-group">
                                     <input type="submit" value="Register" class="btn-md btn-primary btn-block">                                </div>
